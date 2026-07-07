@@ -3,6 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Heart</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    background:
+    radial-gradient(circle,#18002d,#030006);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:"Courier New",monospace;
+}
+
+
+#heart{
+
+    width:95vw;
+    max-width:850px;
+
+    height:95vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    color:#d58cff;
+
+    font-size:clamp(9px,2vw,20px);
+
+    font-weight:bold;
+
+    line-height:1.35;
+
+    text-align:center;
+
+
+    text-shadow:
+    0 0 5px #d58cff,
+    0 0 15px #a855f7,
+    0 0 30px #7e22ce;
+
+}
+
+
+.line{
+
+    white-space:pre;
+
+    animation:
+    glow 2s infinite alternate;
+
+}
+
+
+@keyframes glow{
+
+    from{
+        opacity:.8;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    #heart{
+
+        font-size:11px;
+        line-height:1.25;
+
+    }
+
+}
+
+
+@media(max-width:350px){
+
+    #heart{
+
+        font-size:8px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div id="heart"></div>
+
+
+
+<script>
+
+
+const heart=document.getElementById("heart");
+
+
+
+const words=[
+
+"                 i love zaika",
+
+"            i love zaika   i love emee",
+
+"        i love zaika   i love emee   i love kakang",
+
+"     i love zaika   i love emee   i love kakang",
+
+"   i love zaika   i love emee   i love kakang",
+
+" i love zaika   i love emee   i love kakang",
+
+"i love zaika   i love emee   i love kakang",
+
+" i love zaika   i love emee   i love kakang",
+
+"  i love zaika   i love emee   i love kakang",
+
+"    i love zaika   i love emee   i love kakang",
+
+"       i love zaika   i love emee",
+
+"          i love kakang",
+
+"             i love zaika",
+
+"                i love emee",
+
+"                   i love kakang"
+
+];
+
+
+
+let row=0;
+
+
+
+function typeLine(text){
+
+
+    const line=document.createElement("div");
+
+    line.className="line";
+
+    heart.appendChild(line);
+
+
+
+    let letter=0;
+
+
+
+    let typing=setInterval(()=>{
+
+
+        line.textContent += text[letter];
+
+
+        letter++;
+
+
+
+        if(letter>=text.length){
+
+
+            clearInterval(typing);
+
+
+            row++;
+
+
+
+            setTimeout(()=>{
+
+
+                if(row < words.length){
+
+                    typeLine(words[row]);
+
+                }
+
+                else{
+
+
+                    setTimeout(()=>{
+
+
+                        heart.innerHTML="";
+
+                        row=0;
+
+                        typeLine(words[row]);
+
+
+                    },2500);
+
+
+                }
+
+
+
+            },120);
+
+
+        }
+
+
+
+    },35);
+
+
+
+}
+
+
+
+typeLine(words[row]);
+
+
+
+</script>
+
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Love Heart Printer</title>
 <link rel="stylesheet" href="style.css">
 </head>
