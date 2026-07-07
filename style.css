@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #080013;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Courier New", monospace;
+}
+
+.heart-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#heart {
+    position: relative;
+    width: min(90vw, 600px);
+    height: min(90vw, 600px);
+    color: violet;
+    text-align: center;
+}
+
+.word {
+    position: absolute;
+    color: #c77dff;
+    font-size: clamp(10px, 1.8vw, 20px);
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    animation: appear 0.8s forwards;
+    text-shadow:
+        0 0 5px #c77dff,
+        0 0 15px #9d4edd,
+        0 0 30px #7b2cbf;
+}
+
+
+@keyframes appear {
+    from {
+        opacity:0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity:1;
+        transform: scale(1);
+    }
+}
+
+
+@media(max-width:500px){
+
+    .word {
+        font-size: 10px;
+    }
+
+}
